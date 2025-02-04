@@ -1,10 +1,9 @@
-
-import { searchAlbum } from "../controllers";
+import { albumController } from "../controllers/albumController.js";
 
 /**
  * Tests unitaires pour la fonction searchAlbum
  */
-describe("Test de la fonction searchArtist", () => {
+describe("Test de la fonction albumController", () => {
   /**
    * Vérifie que la fonction renvoie 400 si le paramètre 'album' est manquant
    */
@@ -16,12 +15,13 @@ describe("Test de la fonction searchArtist", () => {
       json: jest.fn(), // Simule `res.json()`
     };
 
-    await searchAlbum(req, res);
+    await albumController(req, res);
     expect(res.status).toHaveBeenCalledWith(400); // Vérifie que le statut est 400
-    expect(res.json).toHaveBeenCalledWith(expect.objectContaining({
+    expect(res.json).toHaveBeenCalledWith(
+      expect.objectContaining({
         error: "Veuillez fournir un nom d'album.",
-    }));
-    
+      })
+    );
   });
 
   /**
@@ -34,7 +34,7 @@ describe("Test de la fonction searchArtist", () => {
       json: jest.fn(),
     };
 
-    await searchAlbum(req, res);
+    await albumController(req, res);
 
     expect(res.json).toHaveBeenCalledWith(expect.any(Object));
   });
