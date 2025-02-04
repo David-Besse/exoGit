@@ -49,3 +49,4 @@ Le serveur sera accessible sur `http://localhost:3000`.
 
 🚀 **Améliorations futures** : Ajout d'un système d'authentification, affichage des playlists, recommandations personnalisées...
 
+From love
